@@ -19,7 +19,6 @@ class FunctionalTest(TestCase):
         self.browser.get('http://127.0.0.1:8000/#')
         self.assertIn('BuscoAyuda', self.browser.title)
 
-    
     def test_registro(self):
         self.browser.get('http://127.0.0.1:8000/#')
 
@@ -62,6 +61,7 @@ class FunctionalTest(TestCase):
 
 
 
+
     def test_verDetalle(self):
         self.browser.get('http://127.0.0.1:8000/#')
         span = self.browser.find_element(By.XPATH, '//span[text()="Leonardo Valbuena"]')
@@ -71,6 +71,21 @@ class FunctionalTest(TestCase):
 
         self.assertIn('Leonardo Valbuena', h2.text)
 
+
+    def test_login(self):
+        self.browser.get('http://127.0.0.1:8000/#')
+
+        link = self.browser.find_element_by_id('id_login')
+        link.click()
+
+        nombreUsuario = self.browser.find_element_by_id('id_username')
+        nombreUsuario.send_keys('leo1234')
+
+        clave = self.browser.find_element_by_id('id_password')
+        clave.send_keys('clave123')
+
+        botonGrabar = self.browser.find_element_by_id('id_login')
+        botonGrabar.click()
 
 
 
