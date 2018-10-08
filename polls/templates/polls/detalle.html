@@ -41,7 +41,7 @@
 
 
         function agregarComentario(){
-            $.post( "/addComment", { texto: $('#comentario').val(), trabajador: trabajador, correo: $('#correo').val() })
+            $.post( "/add_comment", { texto: $('#comentario').val(), trabajador: trabajador, correo: $('#correo').val() })
               .done(function( data ) {
                   mostrarComentarios();
               });
