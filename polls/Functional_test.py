@@ -87,6 +87,9 @@ class FunctionalTest(TestCase):
         botonGrabar = self.browser.find_element_by_id('id_login')
         botonGrabar.click()
 
+        linkLogout = self.browser.find_element_by_id('id_logout')
+        self.assertIn('Logout', linkLogout.text)
+
 
 
 
