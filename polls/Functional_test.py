@@ -19,6 +19,7 @@ class FunctionalTest(TestCase):
         self.browser.get('http://127.0.0.1:8000/#')
         self.assertIn('BuscoAyuda', self.browser.title)
 
+
     def test_registro(self):
         self.browser.get('http://127.0.0.1:8000/#')
 
@@ -47,7 +48,7 @@ class FunctionalTest(TestCase):
         imagen.send_keys('/Users/leonardovalbuena/Downloads/developer.jpeg')
 
         nombreUsuario = self.browser.find_element_by_id('id_username')
-        nombreUsuario.send_keys('juan6454')
+        nombreUsuario.send_keys('juan64543')
 
         clave = self.browser.find_element_by_id('id_password')
         clave.send_keys('clave123')
@@ -58,6 +59,17 @@ class FunctionalTest(TestCase):
         span = self.browser.find_element(By.XPATH, '//span[text()="Juan Daniel Arevalo"]')
 
         self.assertIn('Juan Daniel Arevalo', span.text)
+
+
+
+    def test_verDetalle(self):
+        self.browser.get('http://127.0.0.1:8000/#')
+        span = self.browser.find_element(By.XPATH, '//span[text()="Leonardo Valbuena"]')
+        span.click()
+
+        h2 = self.browser.find_element(By.XPATH, '//h2[text()="Leonardo Valbuena"]')
+
+        self.assertIn('Juan Daniel Arevalo', h2.text)
 
 
 
