@@ -91,6 +91,25 @@ class FunctionalTest(TestCase):
         self.assertIn('Logout', linkLogout.text)
 
 
+    def test_add_coment(self):
+        self.browser.get('http://127.0.0.1:8000/#')
+        span = self.browser.find_element(By.XPATH, '//span[text()="Leonardo Valbuena"]')
+        span.click()
+
+        nombre = self.browser.find_element_by_id('correo')
+        nombre.send_keys('demo@demo.com')
+
+        nombre = self.browser.find_element_by_id('comentario')
+        nombre.send_keys('texto coment')
+
+        botonComentar = self.browser.find_element_by_id('id_coment')
+        botonComentar.click()
+        self.browser.implicitly_wait(3)
+
+
+
+
+
 
 
 
